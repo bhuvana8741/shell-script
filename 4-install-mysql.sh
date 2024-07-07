@@ -2,18 +2,21 @@
 
 ID=$(id -u)
 
-if [ $ID -ne 0]
+if [ $ID -ne 0 ]
 then
-echo "Erorr :: please run this script with root access"
+    echo "Erorr:: please run this script with root access"
+    exit 1
 else 
-echo "you are root user"
+    echo "you are root user"
 fi
+
 yum install mysql -y
  
- if[$? -ne 0]
+ if[ $? -ne 0 ]
  then
- echo"ERROR:: Installing mysql is failed"
- exit1
+     echo "ERROR:: Installing mysql is failed"
+     exit 1
  else
- echo"Installing mysql is success"
+     echo "Installing mysql is success"
+     
  fi
